@@ -24,7 +24,7 @@ public struct SettingKeyMacro: DeclarationMacro {
 			context.diagnose(Diagnostic(node: Syntax(node), message: Feedback.noTrailingClosure))
 			return []
 		}
-		let suiteExpr = node.argumentList.first?.expression
+		let suiteExpr = node.arguments.first?.expression
 
 		return varDecls.flatMap {
 			generatePair($0, context: context, suiteExpr: suiteExpr)
